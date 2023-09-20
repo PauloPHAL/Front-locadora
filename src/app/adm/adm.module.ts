@@ -7,6 +7,7 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { AtorComponent } from '../ator/ator/ator.component';
 
 
+
 @NgModule({
   declarations: [
     AdmComponent,
@@ -15,8 +16,8 @@ import { AtorComponent } from '../ator/ator/ator.component';
   imports: [
     CommonModule,
     AdmRoutingModule,
-    AppMaterialModule,
-
+    AppMaterialModule
+    
   ]
 })
 export class AdmModule { }
