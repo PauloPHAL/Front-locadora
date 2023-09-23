@@ -1,3 +1,11 @@
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
+
+.loading-spiiner{
+  padding: 25px;
+  background: rgba(red, green, blue, alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,24 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { delay, first } from 'rxjs';
+
+import { Ator } from '../model/ator';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AtorService {
+
+  private readonly API = '/assets/ator.json';
+
+  constructor( private htttpCliente: HttpClient) { }
+
+  //https://www.youtube.com/watch?v=tP6wtEaCnSI&t=4217s 
+  //1:10:20
+  findAll(){
+    return this.htttpCliente.get<Ator[]>(this.API).pipe(
+      first(),
+      delay(5000)
+    );
+  }
+}
