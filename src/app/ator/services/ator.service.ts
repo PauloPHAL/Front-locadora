@@ -18,7 +18,7 @@ export class AtorService {
   findAll(){
     return this.htttpCliente.get<Ator[]>(this.API).pipe(
       first(),
-      delay(5000)
+      delay(2000)
     );
   }
 }

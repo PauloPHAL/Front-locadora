@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErroDialogComponent } from 'src/app/shared/components/erro-dialog/erro-dialog.component';
 
@@ -20,7 +21,9 @@ export class AtorComponent implements OnInit{
 
   constructor(
     private atorService: AtorService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
     ){
     //this.atorService = new AtorService();
     this.listaAtor$ = this.atorService.findAll().pipe(
@@ -46,5 +49,9 @@ export class AtorComponent implements OnInit{
       data: msg
     });
   }
-
+  
+  onAdd(){
+    this.router.navigate(['newAtorForm'],{relativeTo: this.route});
+    //console.log("oi");
+  }
 }
