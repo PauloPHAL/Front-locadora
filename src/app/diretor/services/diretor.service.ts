@@ -7,7 +7,7 @@ import { Diretor } from '../model/diretor';
   providedIn: 'root'
 })
 export class DiretorService {
-  private readonly API = '/assets/ator.json';
+  private readonly API = '/api/diretor';
 
   constructor( private htttpCliente: HttpClient) { }
 
@@ -16,5 +16,9 @@ export class DiretorService {
       first(),
       delay(5000)
     );
+  }
+
+  save(record: Diretor){
+    return this.htttpCliente.post<Diretor>(this.API, record).pipe(first());
   }
 }

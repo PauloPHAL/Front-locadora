@@ -11,13 +11,10 @@ import { ClasseFormComponent } from './classe-form/classe-form.component';
 
 @NgModule({
   declarations: [
-    ClasseFormComponent
   ],
   imports: [
     CommonModule,
     ClasseRoutingModule,
-    AppMaterialModule,
-    SharedModule
   ]
 })
 export class ClasseModule { }

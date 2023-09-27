@@ -10,13 +10,10 @@ import { DiretorFormComponent } from './diretor-form/diretor-form.component';
 
 @NgModule({
   declarations: [
-    DiretorFormComponent
   ],
   imports: [
     CommonModule,
     DiretorRoutingModule,
-    AppMaterialModule,
-    SharedModule
   ]
 })
 export class DiretorModule { }

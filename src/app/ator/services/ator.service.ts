@@ -21,4 +21,8 @@ export class AtorService {
       delay(2000)
     );
   }
+
+  save(record: Ator){
+    return this.htttpCliente.post<Ator>(this.API, record).pipe(first());
+  }
 }

@@ -5,6 +5,7 @@ import { ErroDialogComponent } from 'src/app/shared/components/erro-dialog/erro-
 
 import { Classe } from '../model/classe';
 import { ClasseService } from '../services/classe.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-classe',
@@ -18,11 +19,13 @@ export class ClasseComponent {
 
   constructor(
     private classeService: ClasseService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
     ){
     this.listaClasse$ = this.classeService.findAll().pipe(
       catchError(erro => {
-        this.onErro('Erro ao carregar Atores:');
+        this.onErro('Erro ao carregar Classes:');
         return of([])
       }),
     );
@@ -34,5 +37,10 @@ export class ClasseComponent {
     this.dialog.open(ErroDialogComponent, {
       data: msg
     });
+  }
+
+  onAdd(){
+    this.router.navigate(['newClasseForm'],{relativeTo: this.route});
+    //console.log("oi");
   }
 }

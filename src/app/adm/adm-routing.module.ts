@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdmComponent } from './adm/adm.component';
+
 import { AtorFormComponent } from '../ator/ator-form/ator-form.component';
+import { AdmComponent } from './adm/adm.component';
+import { ClasseFormComponent } from '../classe/classe-form/classe-form.component';
+import { DiretorFormComponent } from '../diretor/diretor-form/diretor-form.component';
 
 const routes: Routes = [
   { path: '', component: AdmComponent},
-  {path:'newAtorForm', component: AtorFormComponent }
+  {path:'newAtorForm', component: AtorFormComponent },
+  {path:'newClasseForm', component: ClasseFormComponent },
+  {path:'newDiretorForm', component: DiretorFormComponent }
 ];
 
 @NgModule({

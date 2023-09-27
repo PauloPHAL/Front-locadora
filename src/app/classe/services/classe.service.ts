@@ -9,7 +9,7 @@ import { Classe } from '../model/classe';
 })
 export class ClasseService {
 
-  private readonly API = '/assets/classe.json';
+  private readonly API = '/api/classe';
 
   constructor( private htttpCliente: HttpClient) { }
 
@@ -18,5 +18,9 @@ export class ClasseService {
       first(),
       delay(5000)
     );
+  }
+
+  save(record: Classe){
+    return this.htttpCliente.post<Classe>(this.API, record).pipe(first());
   }
 }

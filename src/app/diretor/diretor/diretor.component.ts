@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable, catchError, of } from 'rxjs';
 import { ErroDialogComponent } from 'src/app/shared/components/erro-dialog/erro-dialog.component';
 import { Diretor } from '../model/diretor';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-diretor',
@@ -16,12 +17,14 @@ export default class DiretorComponent implements OnInit{
 
   constructor(
     private diretorService: DiretorService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
     ){
     //this.atorService = new AtorService();
     this.listaDiretor$ = this.diretorService.findAll().pipe(
       catchError(erro => {
-        this.onErro('Erro ao carregar Atores:');
+        this.onErro('Erro ao carregar Diretores:');
         return of([])
       }),
     );
@@ -33,6 +36,11 @@ export default class DiretorComponent implements OnInit{
     this.dialog.open(ErroDialogComponent, {
       data: msg
     });
+  }
+
+  onAdd(){
+    this.router.navigate(['newDiretorForm'],{relativeTo: this.route});
+    //console.log("oi");
   }
 
 }

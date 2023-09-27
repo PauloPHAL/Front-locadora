@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { AtorService } from '../services/ator.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-ator-form',
@@ -8,22 +10,27 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AtorFormComponent {
 
-  formAtor: FormGroup
+  form: FormGroup
 
-  constructor(private formBuilder: FormBuilder){
-    this.formAtor = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder, 
+    private servicoAtor: AtorService,
+    private _snackBar: MatSnackBar){
+    this.form = this.formBuilder.group({
       nome:[null],
     });
   }
 
   salvar(){
-    console.log(this.formAtor.value);
+    this.servicoAtor.save(this.form.value).subscribe(result => console.log(result), erro => this.erro());
   }
 
   cancelar(){
 
   }
 
+  private erro(){
+    this._snackBar.open("erro!",'',{duration:(5000)});
+  }
   // <!-- <mat-label>Nome Ator:</mat-label>
   // <mat-select formControlName="nome">
   //     <mat-option value="null"></mat-option>
