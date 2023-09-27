@@ -21,6 +21,7 @@ export class ClasseService {
   }
 
   save(record: Classe){
+    //console.log(record);
     return this.htttpCliente.post<Classe>(this.API, record).pipe(first());
   }
 }
