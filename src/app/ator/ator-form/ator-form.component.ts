@@ -8,11 +8,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AtorFormComponent {
 
-  form: FormGroup
+  formAtor: FormGroup
 
   constructor(private formBuilder: FormBuilder){
-    this.form = this.formBuilder.group({
-      nome:[null]
+    this.formAtor = this.formBuilder.group({
+      nome:[null],
     });
   }
+
+  salvar(){
+    console.log(this.formAtor.value);
+  }
+
+  cancelar(){
+
+  }
+
+  // <!-- <mat-label>Nome Ator:</mat-label>
+  // <mat-select formControlName="nome">
+  //     <mat-option value="null"></mat-option>
+  //     <mat-option value="Front-end">Front-End</mat-option>
+  //     <mat-option value="Back-end">Back-End</mat-option>
+  // </mat-select> -->
+
+
+
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-adm',
@@ -6,10 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./adm.component.css']
 })
 export class AdmComponent {
-  selectedContent: string = ''; // Variável para rastrear o conteúdo selecionado
 
+ 
+  selectedContent: string = ''; 
   showContent(content: string) {
-    this.selectedContent = content; // Defina o conteúdo selecionado com base no botão clicado
+    this.selectedContent = content; 
   }
 
   getContent(){

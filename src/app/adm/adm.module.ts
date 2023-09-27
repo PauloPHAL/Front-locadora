@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { AtorFormComponent } from '../ator/ator-form/ator-form.component';
 import { AtorComponent } from '../ator/ator/ator.component';
 import { ClasseComponent } from '../classe/classe/classe.component';
 import DiretorComponent from '../diretor/diretor/diretor.component';
@@ -15,7 +16,8 @@ import { AdmComponent } from './adm/adm.component';
     AdmComponent,
     AtorComponent,
     ClasseComponent,
-    DiretorComponent
+    DiretorComponent,
+    AtorFormComponent
   ],
   imports: [
     CommonModule,

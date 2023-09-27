@@ -1,30 +1,30 @@
 <p>
-    <mat-toolbar color="primary">
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Locadora ADM</span>
-      <span class="example-spacer"></span>
-    </mat-toolbar>
-  </p>
-  
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="showContent('ator')">CRUD Ator</button>
-    <button mat-menu-item (click)="showContent('classe')">CRUD Classe</button>
-    <button mat-menu-item (click)="showContent('diretor')">CRUD Diretor</button>
-    <!-- Adicione mais itens de menu, se necessário -->
-  </mat-menu>
-  
-  <div class="content-area">
-    <div *ngIf="selectedContent === 'ator'">
-      <app-ator></app-ator>
-    </div>
+  <mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Locadora ADM</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
 
-    <div *ngIf="selectedContent === 'classe'">
-      <app-classe></app-classe>
-    </div>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="showContent('ator')">CRUD Ator</button>
+  <button mat-menu-item (click)="showContent('classe')">CRUD Classe</button>
+  <button mat-menu-item (click)="showContent('diretor')">CRUD Diretor</button>
+  <!-- Adicione mais itens de menu, se necessário -->
+</mat-menu>
 
-    <div *ngIf="selectedContent === 'diretor'">
-      <app-diretor></app-diretor>
-    </div>
+<div class="content-area">
+  <div *ngIf="selectedContent === 'ator'">
+    <app-ator></app-ator>
   </div>
+
+  <div *ngIf="selectedContent === 'classe'">
+    <app-classe></app-classe>
+  </div>
+
+  <div *ngIf="selectedContent === 'diretor'">
+    <app-diretor></app-diretor>
+  </div>
+</div>
