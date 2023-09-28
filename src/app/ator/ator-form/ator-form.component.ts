@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AtorService } from '../services/ator.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ator-form',
@@ -14,29 +15,47 @@ export class AtorFormComponent {
 
   constructor(private formBuilder: FormBuilder, 
     private servicoAtor: AtorService,
-    private _snackBar: MatSnackBar){
+    private _snackBar: MatSnackBar,private router: Router){
     this.form = this.formBuilder.group({
       nome:[null],
     });
   }
 
-  salvar(){
-    this.servicoAtor.save(this.form.value).subscribe(result => console.log(result), erro => this.erro());
+  salvar() {
+    // Verifique se o nome não é nulo antes de salvar
+    const formData = this.form.value;
+    if (!formData.nome) {
+      this.mostrarMensagemDeErro('O nome é obrigatório.');
+      return;
+    }
+
+    this.servicoAtor.save(formData).subscribe(
+      () => {
+        // Limpar o formulário ou realizar outras ações após salvar com sucesso
+        this.form.reset();
+        this.mostrarMensagemDeSucesso('Ator salvo com sucesso!');
+      },() => {
+
+        this.mostrarMensagemDeErro('Ocorreu um erro ao salvar o ator.');
+      }
+    );
+  }
+
+  mostrarMensagemDeSucesso(mensagem: string) {
+    this._snackBar.open(mensagem, 'Fechar', {
+      duration: 2000, // Exibe a mensagem por 2 segundos
+    });
+  }
+
+  mostrarMensagemDeErro(mensagem: string) {
+    this._snackBar.open(mensagem, 'Fechar', {
+      duration: 2000,
+    });
   }
 
   cancelar(){
-
+    this.router.navigate(['/adm']);
   }
-
-  private erro(){
-    this._snackBar.open("erro!",'',{duration:(5000)});
-  }
-  // <!-- <mat-label>Nome Ator:</mat-label>
-  // <mat-select formControlName="nome">
-  //     <mat-option value="null"></mat-option>
-  //     <mat-option value="Front-end">Front-End</mat-option>
-  //     <mat-option value="Back-end">Back-End</mat-option>
-  // </mat-select> -->
 
 
 
