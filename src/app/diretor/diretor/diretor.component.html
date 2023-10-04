@@ -23,16 +23,16 @@
         <!--Actions Column-->
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef>
-            <button mat-mini-fab color="accent" aria-label="Adicionar Ator" (click)="onAdd()">
+            <button mat-mini-fab color="accent" aria-label="Adicionar Diretor" (click)="onAdd()">
               <mat-icon>add</mat-icon>
             </button>
           </mat-header-cell>
-          <mat-cell *matCellDef="let Ator">
-            <button mat-icon-button color="primary" aria-label="Editar Ator">
+          <mat-cell *matCellDef="let Diretor">
+            <button mat-icon-button color="primary" aria-label="Editar Diretor" (click)="onEdit(Diretor)">
               <mat-icon>edit</mat-icon>
             </button>
   
-            <button mat-icon-button color="warn" aria-label="Excluir Ator">
+            <button mat-icon-button color="warn" aria-label="Excluir Diretor" (click)="onDelete(Diretor)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-cell>

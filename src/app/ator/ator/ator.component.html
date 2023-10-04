@@ -28,15 +28,17 @@
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let Ator">
-          <button mat-icon-button color="primary" aria-label="Editar Ator">
+          <button mat-icon-button color="primary" aria-label="Editar Ator" (click)="onEdit(Ator)">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-icon-button color="warn" aria-label="Excluir Ator">
+          <button mat-icon-button color="warn" aria-label="Excluir Ator" (click)="onDelete(Ator)">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>
       </ng-container>
+
+           
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

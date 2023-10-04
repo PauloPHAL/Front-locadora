@@ -13,15 +13,38 @@ export class ClasseService {
 
   constructor( private htttpCliente: HttpClient) { }
 
-  findAll(){
+
+  list(){
     return this.htttpCliente.get<Classe[]>(this.API).pipe(
       first(),
       delay(5000)
     );
   }
 
-  save(record: Classe){
-    //console.log(record);
+  loadById(id: string) {
+    return this.htttpCliente.get<Classe>(`${this.API}/${id}`);
+  }
+
+  save(record: Partial<Classe>) {
+    if (record._id) {
+      return this.update(record);
+    }
+    return this.create(record);
+  }
+
+
+  private create(record: Partial<Classe>) {
     return this.htttpCliente.post<Classe>(this.API, record).pipe(first());
   }
+
+  private update(record: Partial<Classe>) {
+    return this.htttpCliente.put<Classe>(`${this.API}/${record._id}`, record).pipe(first());
+  }
+
+  remove(id: string) {
+    return this.htttpCliente.delete(`${this.API}/${id}`).pipe(first());
+  }
+
+
+
 }

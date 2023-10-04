@@ -11,14 +11,34 @@ export class DiretorService {
 
   constructor( private htttpCliente: HttpClient) { }
 
-  findAll(){
+  list(){
     return this.htttpCliente.get<Diretor[]>(this.API).pipe(
       first(),
       delay(5000)
     );
   }
 
-  save(record: Diretor){
+  loadById(id: string) {
+    return this.htttpCliente.get<Diretor>(`${this.API}/${id}`);
+  }
+
+  save(record: Partial<Diretor>) {
+    if (record._id) {
+      return this.update(record);
+    }
+    return this.create(record);
+  }
+
+
+  private create(record: Partial<Diretor>) {
     return this.htttpCliente.post<Diretor>(this.API, record).pipe(first());
+  }
+
+  private update(record: Partial<Diretor>) {
+    return this.htttpCliente.put<Diretor>(`${this.API}/${record._id}`, record).pipe(first());
+  }
+
+  remove(id: string) {
+    return this.htttpCliente.delete(`${this.API}/${id}`).pipe(first());
   }
 }

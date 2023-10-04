@@ -34,16 +34,15 @@
       <!--Actions Column-->
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-mini-fab color="accent" aria-label="Adicionar Ator" (click)="onAdd()">
+          <button mat-mini-fab color="accent" aria-label="Adicionar Classe" (click)="onAdd()">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
-        <mat-cell *matCellDef="let Ator">
-          <button mat-icon-button color="primary" aria-label="Editar Ator">
+        <mat-cell *matCellDef="let Classe">
+          <button mat-icon-button color="primary" aria-label="Editar Classe" (click)="onEdit(Classe)">
             <mat-icon>edit</mat-icon>
           </button>
-
-          <button mat-icon-button color="warn" aria-label="Excluir Ator">
+          <button mat-icon-button color="warn" aria-label="Excluir Classe" (click)="onDelete(Classe)">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>
