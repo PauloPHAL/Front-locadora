@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ClasseService } from '../services/classe.service';
-import {   Router } from '@angular/router';
+import {   ActivatedRoute, Router } from '@angular/router';
+import { Classe } from '../model/classe';
 
 @Component({
   selector: 'app-classe-form',
   templateUrl: './classe-form.component.html',
   styleUrls: ['./classe-form.component.css']
 })
-export class ClasseFormComponent {
+export class ClasseFormComponent implements OnInit{
 
   form: FormGroup
 
@@ -18,12 +19,37 @@ export class ClasseFormComponent {
     private servicoClasse: ClasseService,
     private _snackBar: MatSnackBar,
     private router: Router,
-    
+    private route2: ActivatedRoute
     ){
     this.form = this.formBuilder.group({
+      _id: [null],
       nome:[null],
       valor:[null],
       dataDevolucao:[null]
+    });
+  }
+
+  ngOnInit(): void{
+    this.route2.params.subscribe(
+      (params: any) =>{
+        const id = params['id'];
+        //console.log(id);
+        const classe$ = this.servicoClasse.loadById(id);
+        classe$.subscribe(classe => {
+          this.updateForm(classe);
+        });
+      }
+    );
+
+    
+  }  
+
+  updateForm(classe: Classe ){
+    this.form.patchValue({
+      _id: classe._id,
+      nome: classe.nome,
+      valor: classe.valor,
+      dataDevolucao: classe.dataDevolucao
     });
   }
 

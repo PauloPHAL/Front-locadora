@@ -14,7 +14,7 @@ export class DiretorService {
   list(){
     return this.htttpCliente.get<Diretor[]>(this.API).pipe(
       first(),
-      delay(5000)
+      delay(1000)
     );
   }
 

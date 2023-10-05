@@ -49,9 +49,8 @@ export class ClasseComponent {
 
 
 
-  onEdit(classe: Classe) {
-    this.editMode = true;
-    console.log(classe);
+  onEdit(id: string) {
+    this.router.navigate(['editarClasse',id], { relativeTo: this.route });
   }
 
   onDelete(classe: Classe) {

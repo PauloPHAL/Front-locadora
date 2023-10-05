@@ -39,7 +39,7 @@
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let Classe">
-          <button mat-icon-button color="primary" aria-label="Editar Classe" (click)="onEdit(Classe)">
+          <button mat-icon-button color="primary" aria-label="Editar Classe" (click)="onEdit(Classe._id)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button color="warn" aria-label="Excluir Classe" (click)="onDelete(Classe)">

@@ -1,25 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AtorService } from '../services/ator.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Ator } from '../model/ator';
 
 @Component({
   selector: 'app-ator-form',
   templateUrl: './ator-form.component.html',
   styleUrls: ['./ator-form.component.css']
 })
-export class AtorFormComponent {
+export class AtorFormComponent implements OnInit{
 
   form: FormGroup
 
   constructor(private formBuilder: FormBuilder, 
     private servicoAtor: AtorService,
-    private _snackBar: MatSnackBar,private router: Router){
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private route2: ActivatedRoute){
     this.form = this.formBuilder.group({
+      _id: [null],
       nome:[null],
     });
   }
+
+  ngOnInit(): void{
+    this.route2.params.subscribe(
+      (params: any) =>{
+        const id = params['id'];
+        //console.log(id);
+        const ator$ = this.servicoAtor.loadById(id);
+        ator$.subscribe(ator => {
+          this.updateForm(ator);
+        });
+      }
+    );
+
+    
+  }  
+
+  updateForm(ator: Ator ){
+    this.form.patchValue({
+      _id: ator._id,
+      nome: ator.nome
+    });
+  }
+
 
   salvar() {
     // Verifique se o nome não é nulo antes de salvar

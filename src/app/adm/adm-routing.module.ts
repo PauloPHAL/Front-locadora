@@ -7,10 +7,17 @@ import { ClasseFormComponent } from '../classe/classe-form/classe-form.component
 import { DiretorFormComponent } from '../diretor/diretor-form/diretor-form.component';
 
 const routes: Routes = [
-  { path: '', component: AdmComponent},
-  {path:'newAtorForm', component: AtorFormComponent },
-  {path:'newClasseForm', component: ClasseFormComponent },
-  {path:'newDiretorForm', component: DiretorFormComponent }
+  { path: '', component: AdmComponent },
+  { path: 'newAtorForm', component: AtorFormComponent },
+  { path: 'newClasseForm', component: ClasseFormComponent },
+  { path: 'newDiretorForm', component: DiretorFormComponent },
+
+
+  //---------------------------------------------------------------------
+  { path: 'editarAtor/:id', component: AtorFormComponent },
+  { path: 'editarClasse/:id', component: ClasseFormComponent },
+  { path: 'editarDiretor/:id', component: DiretorFormComponent },
+
 ];
 
 @NgModule({

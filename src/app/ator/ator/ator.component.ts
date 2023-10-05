@@ -42,9 +42,8 @@ export class AtorComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onEdit(ator: Ator) {
-    this.editMode = true;
-    console.log(ator);
+  onEdit(id: string) {
+    this.router.navigate(['editarAtor',id], { relativeTo: this.route });
   }
 
   onDelete(ator: Ator) {

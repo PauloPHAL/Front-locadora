@@ -1,23 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { DiretorService } from '../services/diretor.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Diretor } from '../model/diretor';
 
 @Component({
   selector: 'app-diretor-form',
   templateUrl: './diretor-form.component.html',
   styleUrls: ['./diretor-form.component.css']
 })
-export class DiretorFormComponent {
+export class DiretorFormComponent implements OnInit{
   form: FormGroup
 
   constructor(private formBuilder: FormBuilder, 
     private servicoDiretor: DiretorService,
-    private _snackBar: MatSnackBar,private router: Router){
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private route2: ActivatedRoute){
     this.form = this.formBuilder.group({
+      _id: [null],
       nome:[null],
+    });
+  }
+
+  ngOnInit(): void{
+    this.route2.params.subscribe(
+      (params: any) =>{
+        const id = params['id'];
+        //console.log(id);
+        const diretor$ = this.servicoDiretor.loadById(id);
+        diretor$.subscribe(diretor => {
+          this.updateForm(diretor);
+        });
+      }
+    );
+
+    
+  }  
+
+  updateForm(diretor: Diretor ){
+    this.form.patchValue({
+      _id: diretor._id,
+      nome: diretor.nome
     });
   }
 

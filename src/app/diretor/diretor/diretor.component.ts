@@ -53,9 +53,8 @@ export default class DiretorComponent implements OnInit{
 
 
 
-  onEdit(diretor: Diretor) {
-    this.editMode = true;
-    console.log(diretor);
+  onEdit(id: string) {
+    this.router.navigate(['editarDiretor',id], { relativeTo: this.route });
   }
 
   onDelete(diretor: Diretor) {
