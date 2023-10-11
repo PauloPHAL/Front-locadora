@@ -12,6 +12,10 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { AdmRoutingModule } from './adm-routing.module';
 import { AdmComponent } from './adm/adm.component';
+import { ItemComponent } from '../item/item/item.component';
+import { TituloComponent } from '../titulo/titulo/titulo.component';
+import { ItemFormComponent } from '../item/item-form/item-form.component';
+import { TituloFormComponent } from '../titulo/titulo-form/titulo-form.component';
 
 
 @NgModule({
@@ -20,9 +24,14 @@ import { AdmComponent } from './adm/adm.component';
     AtorComponent,
     ClasseComponent,
     DiretorComponent,
+    ItemComponent,
+    TituloComponent,
+    //------------------------------------------
     AtorFormComponent,
     ClasseFormComponent,
-    DiretorFormComponent
+    DiretorFormComponent,
+    ItemFormComponent,
+    TituloFormComponent
   ],
   imports: [
     CommonModule,

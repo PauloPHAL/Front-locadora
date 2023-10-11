@@ -12,6 +12,8 @@
   <button mat-menu-item (click)="showContent('ator')">CRUD Ator</button>
   <button mat-menu-item (click)="showContent('classe')">CRUD Classe</button>
   <button mat-menu-item (click)="showContent('diretor')">CRUD Diretor</button>
+  <button mat-menu-item (click)="showContent('titulo')">CRUD Titulo</button>
+  <button mat-menu-item (click)="showContent('item')">CRUD Item</button>
   <!-- Adicione mais itens de menu, se necessário -->
 </mat-menu>
 
@@ -26,5 +28,13 @@
 
   <div *ngIf="selectedContent === 'diretor'">
     <app-diretor></app-diretor>
+  </div>
+
+  <div *ngIf="selectedContent === 'titulo'">
+    <app-titulo></app-titulo>
+  </div>
+
+  <div *ngIf="selectedContent === 'item'">
+    <app-item></app-item>
   </div>
 </div>
