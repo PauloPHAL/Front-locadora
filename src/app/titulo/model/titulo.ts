@@ -9,7 +9,7 @@ export interface Titulo{
     ano: string;
     sinopse: string;
     categoria: string;
-    ator: Ator[];
+    atores: Ator[];
     classe: Classe;
     diretor: Diretor;
     itens: Item[];

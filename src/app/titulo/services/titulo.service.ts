@@ -33,6 +33,7 @@ export class TituloService {
 
 
   private create(record: Partial<Titulo>) {
+    //console.log(record);
     return this.htttpCliente.post<Titulo>(this.API, record).pipe(first());
   }
 

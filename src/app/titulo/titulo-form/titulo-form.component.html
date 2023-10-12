@@ -1,1 +1,88 @@
+<mat-card>
+    <mat-toolbar color="primary">Detalhes do Titulo</mat-toolbar>
 
+    <!-- <mat-card-content>
+        <form [formGroup]="form" class="form-container">
+            <mat-form-field>
+                <mat-label>Classe:</mat-label>
+                <mat-select formControlName="nome">
+                    <mat-option value="null"></mat-option>
+                    <mat-option value="Terror">Terror</mat-option>
+                    <mat-option value="Romance">Romance</mat-option>
+                    <mat-option value="Ficcao-cientifica">Ficção científica</mat-option>
+                    <mat-option value="Drama">Drama</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Valor:</mat-label>
+                <input matInput formControlName="valor" type="number">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Data de Devolução:</mat-label>
+                <input matInput formControlName="dataDevolucao" type="date">
+            </mat-form-field>
+
+        </form>
+    </mat-card-content> -->
+
+    <mat-card-content>
+        <form [formGroup]="form" class="form-container">
+            <mat-form-field>
+                <mat-label>Nome:</mat-label>
+                <input matInput formControlName="nome" placeholder="Nome">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Ano:</mat-label>
+                <input matInput formControlName="ano" placeholder="Ano">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Sinopse:</mat-label>
+                <textarea matInput formControlName="sinopse" placeholder="Sinopse"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Categoria:</mat-label>
+                <input matInput formControlName="categoria" placeholder="Categoria">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Classe:</mat-label>
+                <mat-select formControlName="classe">
+                    <mat-option *ngFor="let classe of classes" [value]="classe">{{ classe.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Diretor:</mat-label>
+                <mat-select formControlName="diretor">
+                    <mat-option *ngFor="let diretor of diretores" [value]="diretor">{{ diretor.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Atores:</mat-label>
+                <mat-select formControlName="atores" multiple>
+                    <mat-option *ngFor="let ator of atores" [value]="ator">{{ ator.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <!-- Adicione outros campos conforme necessário -->
+    
+        </form>
+    </mat-card-content>
+    
+
+
+    <mat-card-actions class="button-container">
+        <button mat-raised-button color="primary" (click)="salvar()">
+            Salvar
+        </button>
+        <button mat-raised-button class="cancel-button" (click)="cancelar()">
+            Cancelar
+        </button>
+    </mat-card-actions>
+</mat-card>
