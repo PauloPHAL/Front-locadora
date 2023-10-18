@@ -69,7 +69,7 @@ export class ClasseComponent {
               horizontalPosition: 'center'
             });
           },
-          () => this.onErro('Erro ao tentar remover classe.')
+          (erros) => this.onErro(erros.error)
         );
       }
     });

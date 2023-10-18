@@ -8,8 +8,6 @@ import { ItemFormComponent } from './item-form/item-form.component';
 
 @NgModule({
   declarations: [
-    ItemComponent,
-    ItemFormComponent
   ],
   imports: [
     CommonModule,

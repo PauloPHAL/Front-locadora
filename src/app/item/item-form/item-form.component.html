@@ -1,1 +1,42 @@
-<p>item-form works!</p>
+<mat-card>
+    <mat-toolbar color="primary">Detalhes do Titulo</mat-toolbar>
+
+    <mat-card-content>
+        <form [formGroup]="form" class="form-container">
+            <mat-form-field>
+                <mat-label>Numero de Serie:</mat-label>
+                <input matInput formControlName="numSerie" placeholder="Numero de Serie" type="number">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Data de Aquisição:</mat-label>
+                <input matInput formControlName="dataAquisicao" placeholder="Data Aquisicao" type="date">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Tipo Item:</mat-label>
+                <input matInput formControlName="tipoItem" placeholder="tipo">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Titulos:</mat-label>
+                <mat-select formControlName="titulo">
+                    <mat-option *ngFor="let titulo of titulos" [value]="titulo">{{ titulo.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <!-- Adicione outros campos conforme necessário -->
+    
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions class="button-container">
+        <button mat-raised-button color="primary" (click)="salvar()">
+            Salvar
+        </button>
+        <button mat-raised-button class="cancel-button" (click)="cancelar()">
+            Cancelar
+        </button>
+    </mat-card-actions>
+</mat-card>
+

@@ -45,26 +45,25 @@ export class TituloComponent {
   }
 
   onDelete(titulo: Titulo) {
-    // const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-    //   data: 'Tem certeza que deseja remover esse titulo?',
-    // });
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja remover esse titulo?',
+    });
 
-    // dialogRef.afterClosed().subscribe((result: boolean) => {
-    //   if (result) {
-    //     this.tituloService.remove(titulo._id).subscribe(
-    //       () => {
-    //         this.refresh(); 
-    //         this.snackBar.open('Titulo removido com sucesso!', 'X', {
-    //           duration: 5000,
-    //           verticalPosition: 'top',
-    //           horizontalPosition: 'center'
-    //         });
-    //       },
-    //       () => this.onErro('Erro ao tentar remover titulo.') 
-    //     );
-    //   }
-    // });
-    console.log(titulo);
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.tituloService.remove(titulo._id).subscribe(
+          () => {
+            this.refresh(); 
+            this.snackBar.open('Titulo removido com sucesso!', 'X', {
+              duration: 5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+          },
+          () => this.onErro('Erro ao tentar remover titulo.') 
+        );
+      }
+    });
   }
 
   refresh() {

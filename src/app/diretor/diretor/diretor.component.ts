@@ -73,7 +73,7 @@ export default class DiretorComponent implements OnInit{
               horizontalPosition: 'center'
             });
           },
-          () => this.onErro('Erro ao tentar remover diretor.') 
+          (erro) => this.onErro(erro.error) 
         );
       }
     });

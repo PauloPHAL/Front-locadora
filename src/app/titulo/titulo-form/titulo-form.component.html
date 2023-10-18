@@ -36,7 +36,7 @@
     
             <mat-form-field>
                 <mat-label>Ano:</mat-label>
-                <input matInput formControlName="ano" placeholder="Ano">
+                <input matInput formControlName="ano" placeholder="Ano" type="number">
             </mat-form-field>
     
             <mat-form-field>
@@ -67,6 +67,13 @@
                 <mat-label>Atores:</mat-label>
                 <mat-select formControlName="atores" multiple>
                     <mat-option *ngFor="let ator of atores" [value]="ator">{{ ator.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Itens:</mat-label>
+                <mat-select formControlName="itens" multiple>
+                    <mat-option *ngFor="let item of itens" [value]="item">{{ item.numSerie }}</mat-option>
                 </mat-select>
             </mat-form-field>
     

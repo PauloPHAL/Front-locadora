@@ -43,10 +43,11 @@ export class AtorComponent implements OnInit {
   ngOnInit(): void { }
 
   onEdit(id: string) {
-    this.router.navigate(['editarAtor',id], { relativeTo: this.route });
+    this.router.navigate(['editarAtor', id], { relativeTo: this.route });
   }
 
   onDelete(ator: Ator) {
+
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: 'Tem certeza que deseja remover esse ator?',
     });
@@ -55,17 +56,18 @@ export class AtorComponent implements OnInit {
       if (result) {
         this.atorService.remove(ator._id).subscribe(
           () => {
-            this.refresh(); 
+            this.refresh();
             this.snackBar.open('Ator removido com sucesso!', 'X', {
               duration: 5000,
               verticalPosition: 'top',
               horizontalPosition: 'center'
             });
           },
-          () => this.onErro('Erro ao tentar remover ator.') 
+          (erro) => this.onErro(erro.error)
         );
       }
     });
+
   }
 
   refresh() {
