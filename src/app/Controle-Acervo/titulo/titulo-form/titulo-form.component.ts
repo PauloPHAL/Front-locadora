@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AtorService } from 'src/app/ator/services/ator.service';
-import { ClasseService } from 'src/app/classe/services/classe.service';
-import { DiretorService } from 'src/app/diretor/services/diretor.service';
-import { TituloService } from '../services/titulo.service';
-import { Classe } from 'src/app/classe/model/classe';
-import { Ator } from 'src/app/ator/model/ator';
-import { Diretor } from 'src/app/diretor/model/diretor';
-import { Titulo } from '../model/titulo';
-import { Item } from 'src/app/item/model/item';
-import { ItemService } from 'src/app/item/services/item.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Ator } from "../../ator/model/ator";
+import { AtorService } from "../../ator/services/ator.service";
+import { Classe } from "../../classe/model/classe";
+import { ClasseService } from "../../classe/services/classe.service";
+import { Diretor } from "../../diretor/model/diretor";
+import { DiretorService } from "../../diretor/services/diretor.service";
+import { Item } from "../../item/model/item";
+import { ItemService } from "../../item/services/item.service";
+import { Titulo } from "../model/titulo";
+import { TituloService } from "../services/titulo.service";
+
 
 @Component({
   selector: 'app-titulo-form',

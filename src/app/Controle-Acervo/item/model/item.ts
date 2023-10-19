@@ -1,4 +1,5 @@
-import { Titulo } from "src/app/titulo/model/titulo";
+import { Titulo } from "../../titulo/model/titulo";
+
 
 export interface Item{
     _id: string;

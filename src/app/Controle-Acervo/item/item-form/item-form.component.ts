@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Titulo } from 'src/app/titulo/model/titulo';
-import { TituloService } from 'src/app/titulo/services/titulo.service';
-import { ItemService } from '../services/item.service';
-import { Item } from '../model/item';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Titulo } from "../../titulo/model/titulo";
+import { TituloService } from "../../titulo/services/titulo.service";
+import { Item } from "../model/item";
+import { ItemService } from "../services/item.service";
+
 
 @Component({
   selector: 'app-item-form',

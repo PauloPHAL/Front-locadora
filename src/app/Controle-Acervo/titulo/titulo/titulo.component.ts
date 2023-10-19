@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
-import { Titulo } from '../model/titulo';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, ActivatedRoute } from '@angular/router';
-import { TituloService } from '../services/titulo.service';
-import { ErroDialogComponent } from 'src/app/shared/components/erro-dialog/erro-dialog.component';
-import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
+import { Component } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Observable, catchError, of } from "rxjs";
+import { ConfirmationDialogComponent } from "src/app/shared/components/confirmation-dialog/confirmation-dialog.component";
+import { ErroDialogComponent } from "src/app/shared/components/erro-dialog/erro-dialog.component";
+import { Titulo } from "../model/titulo";
+import { TituloService } from "../services/titulo.service";
+
 
 @Component({
   selector: 'app-titulo',

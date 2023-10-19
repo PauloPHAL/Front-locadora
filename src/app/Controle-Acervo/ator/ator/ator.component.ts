@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, Observable, of } from 'rxjs';
-import { ErroDialogComponent } from 'src/app/shared/components/erro-dialog/erro-dialog.component';
-
-import { Ator } from '../model/ator';
-import { AtorService } from '../services/ator.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
+import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Observable, catchError, of } from "rxjs";
+import { ConfirmationDialogComponent } from "src/app/shared/components/confirmation-dialog/confirmation-dialog.component";
+import { ErroDialogComponent } from "src/app/shared/components/erro-dialog/erro-dialog.component";
+import { Ator } from "../model/ator";
+import { AtorService } from "../services/ator.service";
 
 @Component({
   selector: 'app-ator',
