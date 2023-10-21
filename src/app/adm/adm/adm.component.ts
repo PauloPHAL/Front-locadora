@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adm',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AdmComponent {
 
+  constructor(
+    private router: Router
+  ){
+
+  }
  
   selectedContent: string = ''; 
   showContent(content: string) {
@@ -15,5 +21,9 @@ export class AdmComponent {
 
   getContent(){
     return this.selectedContent;
+  }
+
+  cancelar() {
+    this.router.navigate(['/principal']);
   }
 }

@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'adm'},
+  {path: '', pathMatch: 'full', redirectTo: 'principal'},
   {
-      path: 'adm',
-      loadChildren: () => import('./adm/adm.module').then(m => m.AdmModule)
+      path: 'principal',
+      loadChildren: () => import('./principal/principal.module').then(m => m.PrincipalModule)
   }
 ];
 

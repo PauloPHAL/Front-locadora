@@ -104,7 +104,7 @@ export class ClasseFormComponent implements OnInit{
   }
 
   cancelar(){
-    this.router.navigate(['/adm']);
+    this.router.navigate(['principal/adm']);
   }
 
 

@@ -13,11 +13,22 @@
                 <input matInput formControlName="dataAquisicao" placeholder="Data Aquisicao" type="date">
             </mat-form-field>
     
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <mat-label>Tipo Item:</mat-label>
                 <input matInput formControlName="tipoItem" placeholder="tipo">
+            </mat-form-field> -->
+            
+            <mat-form-field>
+                <mat-label>Tipo Item:</mat-label>
+                <mat-select formControlName="tipoItem">
+                    <mat-option value="Fita">Fita</mat-option>
+                    <mat-option value="DVD">DVD</mat-option>
+                    <mat-option value="BlueRay">BlueRay</mat-option>
+                </mat-select>
             </mat-form-field>
-    
+
+            <!-- https://www.youtube.com/watch?v=1uxnXwN0s5Q -->
+
             <mat-form-field>
                 <mat-label>Titulos:</mat-label>
                 <mat-select formControlName="titulo">

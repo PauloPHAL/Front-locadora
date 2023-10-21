@@ -1,0 +1,12 @@
+<form class="mat-elevation-z4" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="E-mail" type="email" id="email" name="email" [(ngModel)]="user.email" required>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Senha" type="password" id="password" name="password" [(ngModel)]="user.password"
+      required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" (click)="logar()">Login</button>
+</form>

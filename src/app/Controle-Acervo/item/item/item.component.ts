@@ -43,26 +43,26 @@ export class ItemComponent {
   }
 
   onDelete(item: Item) {
-    // const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-    //   data: 'Tem certeza que deseja remover esse item?',
-    // });
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja remover esse item?',
+    });
 
-    // dialogRef.afterClosed().subscribe((result: boolean) => {
-    //   if (result) {
-    //     this.itemService.remove(item._id).subscribe(
-    //       () => {
-    //         this.refresh(); 
-    //         this.snackBar.open('Item removido com sucesso!', 'X', {
-    //           duration: 5000,
-    //           verticalPosition: 'top',
-    //           horizontalPosition: 'center'
-    //         });
-    //       },
-    //       () => this.onErro('Erro ao tentar remover item.') 
-    //     );
-    //   }
-    // });
-    console.log(item);
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.itemService.remove(item._id).subscribe(
+          () => {
+            this.refresh(); 
+            this.snackBar.open('Item removido com sucesso!', 'X', {
+              duration: 5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+          },
+          () => this.onErro('Erro ao tentar remover item.') 
+        );
+      }
+    });
+    //console.log(item);
   }
 
   refresh() {
