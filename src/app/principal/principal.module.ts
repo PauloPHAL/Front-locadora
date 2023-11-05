@@ -16,6 +16,8 @@ import { ItemFormComponent } from '../Controle-Acervo/item/item-form/item-form.c
 import { ItemComponent } from '../Controle-Acervo/item/item/item.component';
 import { TituloFormComponent } from '../Controle-Acervo/titulo/titulo-form/titulo-form.component';
 import { TituloComponent } from '../Controle-Acervo/titulo/titulo/titulo.component';
+import { ClienteComponent } from '../Controle-Cliente/cliente/cliente/cliente.component';
+import { ClienteFormComponent } from '../Controle-Cliente/cliente/cliente-form/cliente-form.component';
 
 
 @NgModule({
@@ -27,12 +29,14 @@ import { TituloComponent } from '../Controle-Acervo/titulo/titulo/titulo.compone
     DiretorComponent,
     ItemComponent,
     TituloComponent,
+    ClienteComponent,
     //------------------------------------------
     AtorFormComponent,
     ClasseFormComponent,
     DiretorFormComponent,
     ItemFormComponent,
-    TituloFormComponent
+    TituloFormComponent,
+    ClienteFormComponent
   ],
   imports: [
     CommonModule,

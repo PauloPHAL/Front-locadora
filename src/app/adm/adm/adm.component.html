@@ -17,6 +17,7 @@
   <button mat-menu-item (click)="showContent('diretor')">CRUD Diretor</button>
   <button mat-menu-item (click)="showContent('titulo')">CRUD Titulo</button>
   <button mat-menu-item (click)="showContent('item')">CRUD Item</button>
+  <button mat-menu-item (click)="showContent('cliente')">CRUD Cliente</button>
 </mat-menu>
 
 <div class="content-area">
@@ -38,5 +39,9 @@
 
   <div *ngIf="selectedContent === 'item'">
     <app-item></app-item>
+  </div>
+
+  <div *ngIf="selectedContent === 'cliente'">
+    <app-cliente></app-cliente>
   </div>
 </div>
