@@ -60,7 +60,7 @@ export class ClienteComponent implements OnInit{
     //     );
     //   }
     // });
-
+    console.log(cliente);
   }
 
   refresh() {
