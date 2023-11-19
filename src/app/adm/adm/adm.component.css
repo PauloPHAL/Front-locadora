@@ -1,5 +1,13 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 
-  
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-button {
+  margin: 0 auto;
+}

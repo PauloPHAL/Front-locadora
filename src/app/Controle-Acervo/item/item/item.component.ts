@@ -15,7 +15,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmat
 })
 export class ItemComponent {
   listaItem$: Observable<Item[]>;
-  displayedColumns = ['_id', 'numSerie', 'dtAq','tipoItem','titulo','actions'];
+  displayedColumns = ['numSerie', 'dtAq','tipoItem','titulo','actions'];
 
   constructor(
     private itemService: ItemService,

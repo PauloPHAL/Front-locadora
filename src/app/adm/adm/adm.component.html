@@ -1,47 +1,55 @@
-<p>
-  <mat-toolbar color="primary">
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Locadora ADM</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button (click)="cancelar()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+<div>
+  <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Locadora ADM</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button (click)="cancelar()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
 
-<mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="showContent('ator')">CRUD Ator</button>
-  <button mat-menu-item (click)="showContent('classe')">CRUD Classe</button>
-  <button mat-menu-item (click)="showContent('diretor')">CRUD Diretor</button>
-  <button mat-menu-item (click)="showContent('titulo')">CRUD Titulo</button>
-  <button mat-menu-item (click)="showContent('item')">CRUD Item</button>
-  <button mat-menu-item (click)="showContent('cliente')">CRUD Cliente</button>
-</mat-menu>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="showContent('ator')">CRUD Ator</button>
+    <button mat-menu-item (click)="showContent('classe')">CRUD Classe</button>
+    <button mat-menu-item (click)="showContent('diretor')">CRUD Diretor</button>
+    <button mat-menu-item (click)="showContent('titulo')">CRUD Titulo</button>
+    <button mat-menu-item (click)="showContent('item')">CRUD Item</button>
+    <button mat-menu-item (click)="showContent('cliente')">CRUD Cliente</button>
+    <button mat-menu-item (click)="showContent('locar')">LOCAR FILME</button>
+  </mat-menu>
 
-<div class="content-area">
-  <div *ngIf="selectedContent === 'ator'">
-    <app-ator></app-ator>
-  </div>
+  <div class="content-area">
+    <div *ngIf="selectedContent === 'ator'">
+      <app-ator></app-ator>
+    </div>
 
-  <div *ngIf="selectedContent === 'classe'">
-    <app-classe></app-classe>
-  </div>
+    <div *ngIf="selectedContent === 'classe'">
+      <app-classe></app-classe>
+    </div>
 
-  <div *ngIf="selectedContent === 'diretor'">
-    <app-diretor></app-diretor>
-  </div>
+    <div *ngIf="selectedContent === 'diretor'">
+      <app-diretor></app-diretor>
+    </div>
 
-  <div *ngIf="selectedContent === 'titulo'">
-    <app-titulo></app-titulo>
-  </div>
+    <div *ngIf="selectedContent === 'titulo'">
+      <app-titulo></app-titulo>
+    </div>
 
-  <div *ngIf="selectedContent === 'item'">
-    <app-item></app-item>
-  </div>
+    <div *ngIf="selectedContent === 'item'">
+      <app-item></app-item>
+    </div>
 
-  <div *ngIf="selectedContent === 'cliente'">
-    <app-cliente></app-cliente>
+    <div *ngIf="selectedContent === 'cliente'">
+      <app-cliente></app-cliente>
+    </div>
+
+    <div *ngIf="selectedContent === 'locar'">
+      <app-locadora></app-locadora>
+    </div>
+
   </div>
 </div>

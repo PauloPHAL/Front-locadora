@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ClasseComponent {
   listaClasse$: Observable<Classe[]>;
-  displayedColumns = ['_id', 'nome', 'valor', 'data', 'actions'];
+  displayedColumns = [ 'nome', 'valor', 'data', 'actions'];
 
   editMode = false;
   constructor(

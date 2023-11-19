@@ -5,14 +5,6 @@
   <div *ngIf="listaAtor$ | async as ator; else loading">
     <table mat-table [dataSource]="ator" class="mat-elevation-z8">
 
-      <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- id Column -->
-      <ng-container matColumnDef="_id">
-        <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let Ator"> {{Ator._id}} </td>
-      </ng-container>
 
       <!-- nome Column -->
       <ng-container matColumnDef="nome">

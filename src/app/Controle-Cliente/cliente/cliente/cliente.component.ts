@@ -15,7 +15,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmat
 })
 export class ClienteComponent implements OnInit{
   listaCliente$: Observable<Cliente[]>;
-  displayedColumns = ['_id', 'tipo','nome', 'actions'];
+  displayedColumns = ['nome', 'tipo','actions'];
 
 
 
@@ -36,41 +36,41 @@ export class ClienteComponent implements OnInit{
   ngOnInit(): void { }
 
   onEdit(id: string) {
-    this.router.navigate(['', id], { relativeTo: this.route });
+    this.router.navigate(['editarCliente', id], { relativeTo: this.route });
   }
 
   onDelete(cliente: Cliente) {
 
-    // const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-    //   data: 'Tem certeza que deseja remover esse cliente?',
-    // });
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: 'Tem certeza que deseja remover esse cliente?',
+    });
 
-    // dialogRef.afterClosed().subscribe((result: boolean) => {
-    //   if (result) {
-    //     this.clienteService.remove(cliente._id).subscribe(
-    //       () => {
-    //         this.refresh();
-    //         this.snackBar.open('Cliente removido com sucesso!', 'X', {
-    //           duration: 5000,
-    //           verticalPosition: 'top',
-    //           horizontalPosition: 'center'
-    //         });
-    //       },
-    //       (erro) => this.onErro(erro.error)
-    //     );
-    //   }
-    // });
-    console.log(cliente);
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.clienteService.remove(cliente._id).subscribe(
+          () => {
+            this.refresh();
+            this.snackBar.open('Cliente removido com sucesso!', 'X', {
+              duration: 5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+          },
+          (erro) => this.onErro(erro.error)
+        );
+      }
+    });
+    //console.log(cliente);
   }
 
   refresh() {
-    // this.listaCliente$ = this.clienteService.list()
-    //   .pipe(
-    //     catchError(error => {
-    //       this.onErro('Erro ao carregar Clientes.');
-    //       return of([])
-    //     })
-    //   );
+    this.listaCliente$ = this.clienteService.list()
+      .pipe(
+        catchError(error => {
+          this.onErro('Erro ao carregar Clientes.');
+          return of([])
+        })
+      );
   }
 
   onErro(msg: string) {

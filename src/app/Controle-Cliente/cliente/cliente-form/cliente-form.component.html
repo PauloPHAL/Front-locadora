@@ -3,21 +3,21 @@
 
     <mat-card-content>
         <form [formGroup]="form" class="form-container">
-            <mat-form-field>
+             <mat-form-field>
                 <mat-label>Nome:</mat-label>
                 <input matInput formControlName="nome" required>
             </mat-form-field>
-
+            
             <mat-form-field>
                 <mat-label>Número de Inscrição:</mat-label>
                 <input matInput formControlName="numInscricao" required>
             </mat-form-field>
-
+            
             <mat-form-field>
                 <mat-label>Data de Nascimento:</mat-label>
                 <input matInput formControlName="dtNascimento" type="date" required>
             </mat-form-field>
-
+            
             <mat-form-field>
                 <mat-label>Sexo:</mat-label>
                 <mat-select formControlName="sexo" required>
@@ -25,23 +25,8 @@
                     <mat-option value="Feminino">Feminino</mat-option>
                 </mat-select>
             </mat-form-field>
-
+            
             <mat-checkbox formControlName="isAtivo" labelPosition="before">Ativo</mat-checkbox>
-
-            <mat-form-field>
-                <mat-label>CPF:</mat-label>
-                <input matInput formControlName="cpf" required>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Endereço:</mat-label>
-                <input matInput formControlName="endereco" required>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Telefone:</mat-label>
-                <input matInput formControlName="telefone" required>
-            </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Tipo de Cliente:</mat-label>
@@ -50,43 +35,29 @@
                     <mat-option value="Dependente">Dependente</mat-option>
                 </mat-select>
             </mat-form-field>
-
-            <mat-form-field>
+            
+            <mat-form-field *ngIf="form.get('tipoCliente')?.value === 'Socio'">
+                <mat-label>CPF:</mat-label>
+                <input matInput formControlName="cpf" required>
+            </mat-form-field>
+            
+            <mat-form-field *ngIf="form.get('tipoCliente')?.value === 'Socio'">
+                <mat-label>Endereço:</mat-label>
+                <input matInput formControlName="endereco" required>
+            </mat-form-field>
+            
+            <mat-form-field *ngIf="form.get('tipoCliente')?.value === 'Socio'">
+                <mat-label>Telefone:</mat-label>
+                <input matInput formControlName="telefone" required>
+            </mat-form-field>
+            
+            <mat-form-field *ngIf="form.get('tipoCliente')?.value === 'Dependente'">
                 <mat-label>Socio:</mat-label>
                 <mat-select formControlName="socio">
                     <mat-option *ngFor="let socio of socios" [value]="socio">{{ socio.nome }}</mat-option>
                 </mat-select>
             </mat-form-field>
-            <!--
-            <div *ngIf="selectedContent === 'Socio'">
-              
-                <mat-form-field>
-                    <mat-label>CPF:</mat-label>
-                    <input matInput formControlName="cpf" required>
-                </mat-form-field>
             
-                <mat-form-field>
-                    <mat-label>Endereço:</mat-label>
-                    <input matInput formControlName="endereco" required>
-                </mat-form-field>
-            
-                <mat-form-field>
-                    <mat-label>Telefone:</mat-label>
-                    <input matInput formControlName="telefone" required>
-                </mat-form-field>
-            </div>
-            
-            <div *ngIf="selectedContent === 'Dependente'">
-               
-                <mat-form-field>
-                    <mat-label>Cliente Responsável:</mat-label>
-                    <mat-select formControlName="socio" required>
-                        
-                    </mat-select>
-                </mat-form-field>
-            </div>
-             -->
-
         </form>
     </mat-card-content>
 

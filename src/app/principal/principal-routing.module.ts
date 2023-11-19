@@ -8,6 +8,8 @@ import { DiretorFormComponent } from '../Controle-Acervo/diretor/diretor-form/di
 import { ItemFormComponent } from '../Controle-Acervo/item/item-form/item-form.component';
 import { TituloFormComponent } from '../Controle-Acervo/titulo/titulo-form/titulo-form.component';
 import { ClienteFormComponent } from '../Controle-Cliente/cliente/cliente-form/cliente-form.component';
+import { LocadoraComponent } from '../Controle-Cliente/locadora/locadora/locadora.component';
+import { LocadoraFormComponent } from '../Controle-Cliente/locadora/locadora-form/locadora-form.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
@@ -18,6 +20,7 @@ const routes: Routes = [
   { path: 'adm/newTituloForm', component: TituloFormComponent },
   { path: 'adm/newItemForm', component: ItemFormComponent },
   { path: 'adm/newClienteForm', component: ClienteFormComponent },
+  { path: 'adm/newLocarForm', component: LocadoraComponent },
 
   //---------------------------------------------------------------------
   { path: 'adm/editarAtor/:id', component: AtorFormComponent },
@@ -25,6 +28,8 @@ const routes: Routes = [
   { path: 'adm/editarDiretor/:id', component: DiretorFormComponent },
   { path: 'adm/editarTitulo/:id', component: TituloFormComponent },
   { path: 'adm/editarItem/:id', component: ItemFormComponent },
+  { path: 'adm/editarCliente/:id', component: ClienteFormComponent },
+  { path: 'adm/editarLocacao/:id', component: LocadoraFormComponent },
 ];
 
 @NgModule({

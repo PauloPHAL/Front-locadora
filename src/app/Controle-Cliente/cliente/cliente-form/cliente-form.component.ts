@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Socio } from '../model/socio';
+import { Depedente } from '../model/depedente';
 
 @Component({
   selector: 'app-cliente-form',
@@ -16,6 +17,7 @@ export class ClienteFormComponent {
   selectedContent: string | null = null;
 
   socios: Socio[] = [];
+  dependentes: Depedente[] = [];
   constructor(private formBuilder: FormBuilder, 
     private servicoCliente: ClienteService,
     private _snackBar: MatSnackBar,
@@ -41,6 +43,9 @@ export class ClienteFormComponent {
       this.socios = sociosBD;
     });
     
+    this.servicoCliente.listDependentes().subscribe(dependentesDB => {
+      this.dependentes = dependentesDB;
+    });
   }
 
   showContent(content: string) {
@@ -51,26 +56,56 @@ export class ClienteFormComponent {
     return this.selectedContent;
   }
 
-  ngOnInit(): void{
-    this.route2.params.subscribe(
-      (params: any) =>{
-        const id = params['id'];
-        const cliente$ = this.servicoCliente.loadById(id);
-        cliente$.subscribe(cliente => {
-          this.updateForm(cliente);
-        });
-      }
-    );
-    
-  }  
+  ngOnInit(): void {
+    this.route2.params.subscribe((params: any) => {
+      const id = params['id'];
+      let socio: Socio | null = null;
+      let dependente: Depedente | null = null;
+      this.servicoCliente.loadById(id).subscribe(cliente => {
+        if (cliente.tipoCliente === 'Socio') {
+          socio = cliente as Socio;
+          if (socio !== null) {
+            this.updateFormForSocio(socio);
+          }
+        } else if (cliente.tipoCliente === 'Dependente') {
+          dependente = cliente as Depedente;
+          if (dependente !== null) {
+            this.updateFormForDependente(dependente);
+          }
+        }
+      });
+    });
+  }
 
-  updateForm(cliente: Cliente ){
-    // this.form.patchValue({
-    //   _id: classe._id,
-    //   nome: classe.nome,
-    //   valor: classe.valor,
-    //   dataDevolucao: classe.dataDevolucao
-    // });
+  updateFormForSocio(cliente: Socio ){
+    this.form.patchValue({
+      _id: cliente._id,
+      nome:cliente.nome,
+      numInscricao:cliente.numInscricao,
+      dtNascimento:cliente.dtNascimento,
+      sexo:cliente.sexo,
+      isAtivo:cliente.isAtivo,
+      tipoCliente:cliente.tipoCliente,
+      cpf:cliente.cpf,
+      endereco:cliente.endereco,
+      telefone:cliente.telefone,
+      depedentes:cliente.depedentes
+    });
+    //console.log(cliente);
+  }
+
+  updateFormForDependente(cliente: Depedente){
+    this.form.patchValue({
+      _id: cliente._id,
+      nome:cliente.nome,
+      numInscricao:cliente.numInscricao,
+      dtNascimento:cliente.dtNascimento,
+      sexo:cliente.sexo,
+      isAtivo:cliente.isAtivo,
+      tipoCliente:cliente.tipoCliente,
+      socio:cliente.socio
+    });
+    //console.log(cliente);
   }
 
   salvar() {

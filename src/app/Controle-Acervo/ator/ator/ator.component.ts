@@ -16,7 +16,7 @@ import { AtorService } from "../services/ator.service";
 export class AtorComponent implements OnInit {
 
   listaAtor$: Observable<Ator[]>;
-  displayedColumns = ['_id', 'nome', 'actions'];
+  displayedColumns = [ 'nome', 'actions'];
 
   editMode = false;
   editedAtor: Ator | null = null;

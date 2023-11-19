@@ -15,7 +15,7 @@ import { DiretorService } from "../services/diretor.service";
 })
 export default class DiretorComponent implements OnInit{
   listaDiretor$: Observable<Diretor[]>;
-  displayedColumns = ['_id','nome','actions'];
+  displayedColumns = ['nome','actions'];
 
   editMode = false;
 

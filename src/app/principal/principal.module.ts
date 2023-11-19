@@ -18,6 +18,8 @@ import { TituloFormComponent } from '../Controle-Acervo/titulo/titulo-form/titul
 import { TituloComponent } from '../Controle-Acervo/titulo/titulo/titulo.component';
 import { ClienteComponent } from '../Controle-Cliente/cliente/cliente/cliente.component';
 import { ClienteFormComponent } from '../Controle-Cliente/cliente/cliente-form/cliente-form.component';
+import { LocadoraComponent } from '../Controle-Cliente/locadora/locadora/locadora.component';
+import { LocadoraFormComponent } from '../Controle-Cliente/locadora/locadora-form/locadora-form.component';
 
 
 @NgModule({
@@ -30,13 +32,15 @@ import { ClienteFormComponent } from '../Controle-Cliente/cliente/cliente-form/c
     ItemComponent,
     TituloComponent,
     ClienteComponent,
+    LocadoraComponent,
     //------------------------------------------
     AtorFormComponent,
     ClasseFormComponent,
     DiretorFormComponent,
     ItemFormComponent,
     TituloFormComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    LocadoraFormComponent
   ],
   imports: [
     CommonModule,

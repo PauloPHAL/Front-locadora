@@ -5,15 +5,6 @@
     <div *ngIf="listaDiretor$ | async as diretor; else loading">
       <table mat-table [dataSource]="diretor" class="mat-elevation-z8">
   
-        <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-  
-        <!-- id Column -->
-        <ng-container matColumnDef="_id">
-          <th mat-header-cell *matHeaderCellDef> Id </th>
-          <td mat-cell *matCellDef="let Diretor"> {{Diretor._id}} </td>
-        </ng-container>
-  
         <!-- nome Column -->
         <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef> Nome </th>

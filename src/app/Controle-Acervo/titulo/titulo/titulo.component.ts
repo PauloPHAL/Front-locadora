@@ -17,7 +17,7 @@ import { TituloService } from "../services/titulo.service";
 export class TituloComponent {
 
   listaTitulo$: Observable<Titulo[]>;
-  displayedColumns = ['_id', 'nome', 'diretor','actions'];
+  displayedColumns = ['nome', 'diretor','actions'];
 
   constructor(
     private tituloService: TituloService,
