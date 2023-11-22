@@ -18,7 +18,8 @@ export class ClienteFormComponent {
 
   socios: Socio[] = [];
   dependentes: Depedente[] = [];
-  constructor(private formBuilder: FormBuilder, 
+  constructor(
+    private formBuilder: FormBuilder, 
     private servicoCliente: ClienteService,
     private _snackBar: MatSnackBar,
     private router: Router,

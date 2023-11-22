@@ -1,1 +1,49 @@
-<p>locadora-form works!</p>
+<mat-card>
+    <mat-toolbar color="primary">Locação</mat-toolbar>
+
+    <mat-card-content>
+        <form [formGroup]="form" class="form-container">
+            
+            <mat-form-field>
+                <mat-label>Valor da multa:</mat-label>
+                <input matInput formControlName="valorMulta" placeholder="valor da multa" type="number">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Data de Locacao:</mat-label>
+                <input matInput formControlName="dataLocacao" type="date" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Data de Devolucao:</mat-label>
+                <input matInput formControlName="dataDevolucao" type="date" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Clientes:</mat-label>
+                <mat-select formControlName="cliente">
+                    <mat-option *ngFor="let Cliente of clientes" [value]="Cliente">{{ Cliente.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Items:</mat-label>
+                <mat-select formControlName="item">
+                    <mat-option *ngFor="let Item of itens" [value]="Item">{{ Item.titulo.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions class="button-container">
+        <button mat-raised-button color="primary" (click)="salvar()">
+            Salvar
+        </button>
+        <button mat-raised-button class="cancel-button" (click)="cancelar()">
+            Cancelar
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+
